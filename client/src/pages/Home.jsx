@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
-import { Card, FormField, Loader } from "../components";
+import { Card, FormField, Loader } from "../components"
 
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
-    return data.map((post) => <Card key={post._id} {...post} />);
+    return data.map((post) => <Card key={post._id} {...post} />)
   }
 
   return (
     <h2 className="mt-5 font-bold text-black text-xl uppercase">{title}</h2>
-  );
-};
+  )
+}
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
-  const [allPosts, setAllPosts] = useState(null);
+  const [loading, setLoading] = useState(false)
+  const [allPosts, setAllPosts] = useState(null)
 
-  const [searchText, setSearchText] = useState("");
-  const [searchTimeout, setSearchTimeout] = useState(null);
-  const [searchedResults, setSearchedResults] = useState(null);
+  const [searchText, setSearchText] = useState("")
+  const [searchTimeout, setSearchTimeout] = useState(null)
+  const [searchedResults, setSearchedResults] = useState(null)
 
   const fetchPosts = async () => {
-    setLoading(true);
+    setLoading(true)
 
     try {
       const response = await fetch(
@@ -32,26 +32,26 @@ const Home = () => {
             "Content-Type": "application/json",
           },
         }
-      );
+      )
 
       if (response.ok) {
-        const result = await response.json();
-        setAllPosts(result.data.reverse());
+        const result = await response.json()
+        setAllPosts(result.data.reverse())
       }
     } catch (err) {
-      alert(err);
+      alert(err)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    fetchPosts()
+  }, [])
 
   const handleSearchChange = (e) => {
-    clearTimeout(searchTimeout);
-    setSearchText(e.target.value);
+    clearTimeout(searchTimeout)
+    setSearchText(e.target.value)
 
     setSearchTimeout(
       setTimeout(() => {
@@ -59,11 +59,11 @@ const Home = () => {
           (item) =>
             item.name.toLowerCase().includes(searchText.toLowerCase()) ||
             item.prompt.toLowerCase().includes(searchText.toLowerCase())
-        );
-        setSearchedResults(searchResult);
+        )
+        setSearchedResults(searchResult)
       }, 500)
-    );
-  };
+    )
+  }
 
   return (
     <section className="max-w-7xl mx-auto">
@@ -115,7 +115,7 @@ const Home = () => {
         )}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

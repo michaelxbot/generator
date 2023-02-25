@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Loader = () => (
   <div role="status">
@@ -19,6 +19,6 @@ const Loader = () => (
       />
     </svg>
   </div>
-);
+)
 
-export default Loader;
+export default Loader

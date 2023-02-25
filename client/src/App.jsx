@@ -1,7 +1,7 @@
-import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import logo from "./assets/logo.png";
-import { Home, CreatePost } from "./pages";
+import React from "react"
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
+import logo from "./assets/logo.png"
+import { Home, CreatePost } from "./pages"
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ const App = () => {
         </Routes>
       </main>
     </BrowserRouter>
-  );
-};
+  )
+}
 
-export default App;
+export default App

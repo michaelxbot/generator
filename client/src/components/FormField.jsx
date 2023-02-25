@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const FormField = ({
   labelName,
@@ -36,6 +36,6 @@ const FormField = ({
       required
     />
   </div>
-);
+)
 
-export default FormField;
+export default FormField
